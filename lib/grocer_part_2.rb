@@ -8,7 +8,12 @@ def apply_coupons(cart, coupons)
   i = 0 
   coupons.each do |coupon|
     item_with_coupon = find_item_by_name_in_collection(coupon[:item], cart)
-    
+    item_in_cart = !!item_with_coupon
+    count_enough_for_coupon = item_in_cart && item_with_coupon[:count] >= coupon[:num]
+    if item_in_cart && count_enough_for_coupon
+      
+    end
+    i += 1
   end
   cart
 end
