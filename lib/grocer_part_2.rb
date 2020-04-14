@@ -9,8 +9,8 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon|
     item_with_coupon = find_item_by_name_in_collection(coupon[:item], cart)
     item_in_cart = !!item_with_coupon
-    count_enough_for_coupon = item_in_cart && item_with_coupon[:count] >= coupon[:num]
-    if item_in_cart && count_enough_for_coupon
+    count_enough_for_coupon = item_in_cart  item_with_coupon[:count] >= coupon[:num]
+    if item_in_cart and count_enough_for_coupon
       cart << { item: "#{item_with_coupon[:item] } W/COUPON",
                 price: coupon[:price]/coupon[:num],
                 clearance: item_with_coupon[:clearance],
